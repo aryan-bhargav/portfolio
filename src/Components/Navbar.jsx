@@ -69,7 +69,7 @@ function Navbar() {
 
             {/* Mobile Menu Dropdown */}
             {isMenuOpen && (
-                <div className="absolute top-20 left-4 right-4 z-50 bg-black/50 backdrop-blur-md rounded-xl py-6 px-4 flex flex-col gap-4 md:hidden shadow-lg animate-slide-down">
+                <div className="absolute top-20 left-4 right-4 z-50 bg-black/95 backdrop-blur-md rounded-xl py-6 px-4 flex flex-col gap-4 md:hidden shadow-lg animate-slide-down">
                     <NavLink
                         to="/"
                         onClick={() => setIsMenuOpen(false)}

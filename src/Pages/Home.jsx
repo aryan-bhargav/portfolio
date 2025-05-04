@@ -20,12 +20,16 @@ const Home = () => {
                     <h1 className='bg-linear-to-b from-white to-black/5 bg-clip-text font-medium text-transparent text-6xl'>
                         Aryan Bhargav
                     </h1>
-                    <p className='                                                          text-[1rem] font-light'>Meet Aryan, a backend developer with a solid grasp of frontend technologies. As a software engineering student, he’s passionate about full-stack development and eager to gain hands-on experience through internships.</p>
+                    <p className='hover:scale-101 hover duration-500  text-[1rem] font-light'>
+                        Meet Aryan, a backend developer with a solid grasp of frontend technologies. As a software engineering student, he’s passionate about full-stack development and eager to gain hands-on experience through internships.
+                    </p>
                 </div>
             </div>
 
 
             <div className='flex flex-row gap-4 mx-4 my-10 items-center'>
+
+                
                 <Link className='lg:p-3 md:p-2 sm:p-1 p-1 rounded-lg hover:bg-gray-800 duration-500' to="https://github.com/aryan-bhargav">
                     <img className='filter invert w-5 h-5 sm:w-9 sm:h-9' src="/github.png" alt="" />
                 </Link>

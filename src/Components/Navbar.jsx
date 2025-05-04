@@ -53,7 +53,7 @@ function Navbar() {
                         : 'px-4 py-3 text-xl hover:bg-gray-800 hover:rounded-lg duration-500'
                 }>Projects</NavLink>
 
-                <NavLink to="https://drive.google.com/file/d/1Q6onPe5ILHny_HQZUne3mW8-lecrEQrU/view?usp=sharing" className={({ isActive }) =>
+                <NavLink to="/resume" className={({ isActive }) =>
                     isActive
                         ? 'px-4 py-3 text-xl bg-gray-600 rounded-lg'
                         : 'px-4 py-3 text-xl hover:bg-gray-800 hover:rounded-lg duration-500'

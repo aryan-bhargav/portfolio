@@ -10,12 +10,15 @@ const Projects = () => {
         title="Kampuss"
         img="/projects/kampuss.png"
         link="https://github.com/yourusername/kampuss"
+        live="https://kampus-connect-frontend.vercel.app/"
+        
       />
       <Project
         className=""
         title="Blogify"
         img="/projects/blogify.png"
         link="https://github.com/aryan-bhargav/blogify"
+        live="https://blogif-nodejs.onrender.com/"
       /><Project
         className=""
         title="Weather app"
@@ -27,6 +30,8 @@ const Projects = () => {
         title="URL Shortner"
         img="/projects/url.png"
         link="https://github.com/aryan-bhargav/url-shortner"
+        live="https://url-shortner-0to5.onrender.com"
+        
       />
 
       <Project

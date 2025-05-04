@@ -30,7 +30,7 @@ function Navbar() {
     return (
         // date
         <nav id="navbar-date" className="fixed top-0 left-0 w-full px-6 py-4 flex items-center justify-between bg-white/80 dark:bg-[#0F0D0C]/80 backdrop-blur-md z-50 shadow-md transition-colors duration-300">
-            <div className='text-xl'>
+            <div className='lg:text-xl md:text-xl sm:text-xl  text-sm'>
                 {date}
             </div>
             {/* menu */}

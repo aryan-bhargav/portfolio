@@ -16,8 +16,8 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto px-4 py-10">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Contact Me</h2>
+        <div className="max-w-2xl px-4">
+            <h2 className="text-2xl font-bold text-white  text-center">Contact Me</h2>
             <form onSubmit={handleSubmit} className="bg-white/10 scale-75 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-md space-y-4">
                 <div className='flex flex-row gap-4'>
                     <input
@@ -50,7 +50,7 @@ const ContactForm = () => {
                 />
                 <button
                     type="submit"
-                    className="w-full border hover:scale-98 duration-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition duration-300"
+                    className="w-full border hover:scale-98 duration-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
                 >
                     Send Message
                 </button>

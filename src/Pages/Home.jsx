@@ -2,6 +2,7 @@ import React from 'react'
 import "../App.css"
 import { Link } from 'react-router-dom'
 import SkillMarquee from '../Components/SkillMarquee'
+import ContactForm from '../Components/ContactForm'
 
 const Home = () => {
     return (
@@ -47,6 +48,7 @@ const Home = () => {
 
 
             <SkillMarquee></SkillMarquee>
+            <ContactForm></ContactForm>
 
         </div>
     )

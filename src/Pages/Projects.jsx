@@ -21,7 +21,7 @@ const Projects = () => {
         title="Weather app"
         img="/projects/weatherapp.png"
         link="https://github.com/aryan-bhargav/weather-app"
-        live="hhttps://aryan-bhargav.github.io/weather-app/"
+        live="https://aryan-bhargav.github.io/weather-app/"
       /><Project
         className=""
         title="URL Shortner"

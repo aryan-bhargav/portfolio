@@ -6,6 +6,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   theme:{
     extend:{
+      screen:{
+        sm:'360px',
+      },
       fontFamily:{
         carl:['']
       }

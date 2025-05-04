@@ -10,7 +10,6 @@ const Project = ({ img, title, live, link }) => {
                 className="relative group cursor-pointer overflow-hidden rounded-t-md shadow-xl bg-cover bg-center aspect-[2/1]"
                 style={{ backgroundImage: `url(${img})` }}
             >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition duration-300" />
                 <div className="absolute bottom-0 left-0 p-4 z-10 w-full bg-gradient-to-t from-black/70 to-transparent">
                     <h1 className="text-md sm:text-lg md:text-xl font-medium text-white">{title}</h1>
                 </div>

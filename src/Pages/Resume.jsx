@@ -1,5 +1,4 @@
 import React from 'react';
-import ResumeComponent from '../Components/ResumeComponent';
 
 const Resume = () => {
   const fileId = '1Q6onPe5ILHny_HQZUne3mW8-lecrEQrU';
@@ -8,7 +7,6 @@ const Resume = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-6">
-      <ResumeComponent/>
       <iframe
         src={previewLink}
         width="640"

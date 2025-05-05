@@ -36,10 +36,14 @@ const SkillMarquee = () => {
     ];
 
     return (
-        <div className="py-5 flex mx-auto justify-center flex-wrap gap-4 overflow-hidden ">
-            {skills.map((skill, index) => (
-                <Skill key={index} name={skill.name} icon={skill.icon} />
-            ))}
+        <div>
+            <h2 className="text-3xl lg:text-5xl font-bold text-black/80 dark:text-white/80 text-center mb-2">My Tech Stack</h2>
+
+            <div className="py-5 flex mx-auto justify-center flex-wrap gap-4 overflow-hidden ">
+                {skills.map((skill, index) => (
+                    <Skill key={index} name={skill.name} icon={skill.icon} />
+                ))}
+            </div>
         </div>
     );
 };

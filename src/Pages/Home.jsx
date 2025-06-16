@@ -58,25 +58,26 @@ const Home = () => {
             </div>
 
 
-            <div className='flex flex-row gap-4 mx-4 lg:my-0 my-10 items-center'>
+            <div className='flex flex-col sm:flex-row md:flex-row lg:flex-row gap-4 mx-4 lg:my-0 my-10  items-center'>
 
+                <div className='flex flex-row  gap-4 lg:my-0 my-10  items-center'>
+                    <Link className={iconLinkClass} to="https://github.com/aryan-bhargav">
+                        <SiGithub className="w-6 h-6 sm:w-9 sm:h-9" />
+                    </Link>
 
-                <Link className={iconLinkClass} to="https://github.com/aryan-bhargav">
-                    <SiGithub className="w-6 h-6 sm:w-9 sm:h-9" />
-                </Link>
-
-                <Link className={iconLinkClass} to="https://www.linkedin.com/in/aryan-bhargav/">
-                    <SiLinkedin className="w-6 h-6 sm:w-9 sm:h-9" />
-                </Link>
-                <Link className={iconLinkClass} to="https://www.instagram.com/aryan_bhargav47/">
-                    <SiInstagram className="w-6 h-6 sm:w-9 sm:h-9" />
-                </Link>
-                <Link className={iconLinkClass} to="https://leetcode.com/u/bhargavaryan5/">
-                    <SiLeetcode className="w-6 h-6 sm:w-9 sm:h-9" />
-                </Link>
-                <Link className={iconLinkClass} to="https://www.geeksforgeeks.org/user/bhargav63r5/">
-                    <SiGeeksforgeeks className="w-6 h-6 sm:w-9 sm:h-9" />
-                </Link>
+                    <Link className={iconLinkClass} to="https://www.linkedin.com/in/aryan-bhargav/">
+                        <SiLinkedin className="w-6 h-6 sm:w-9 sm:h-9" />
+                    </Link>
+                    <Link className={iconLinkClass} to="https://www.instagram.com/aryan_bhargav47/">
+                        <SiInstagram className="w-6 h-6 sm:w-9 sm:h-9" />
+                    </Link>
+                    <Link className={iconLinkClass} to="https://leetcode.com/u/bhargavaryan5/">
+                        <SiLeetcode className="w-6 h-6 sm:w-9 sm:h-9" />
+                    </Link>
+                    <Link className={iconLinkClass} to="https://www.geeksforgeeks.org/user/bhargav63r5/">
+                        <SiGeeksforgeeks className="w-6 h-6 sm:w-9 sm:h-9" />
+                    </Link>
+                </div>
                 <button className='bg-gray-500 text-white hover:bg-gray-400  dark:bg-gray-800 dark:hover:bg-gray-700  hover:rounded-4xl hover:duration-500 rounded-3xl font-semibold px-6 py-3 flex flex-row items-center'>
                     <a href="mailto:bhargavaryan5@gmail.com">Email me</a>
 

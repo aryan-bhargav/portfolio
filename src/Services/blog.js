@@ -1,8 +1,8 @@
 import API from "../api";
 
-export const getAllBlogs = () => API.get("/api/admin/blogs");
+export const getAllBlogs = () => API.get("/api/blogs");
 
-export const getBlogById = (id) => API.get(`/api/admin/blogs/${id}`);
+export const getBlogById = (id) => API.get(`/api/blogs/${id}`);
 
 export const addBlog = (blogData) => API.post("/api/admin/blogs", blogData);
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AlertPopup from "../components/AlertPopup";
+import AlertPopup from "../Components/AlertPopup";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");

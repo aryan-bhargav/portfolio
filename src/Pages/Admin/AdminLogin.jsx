@@ -14,7 +14,7 @@ const AdminLogin = () => {
             const response = await login(email, password);
             localStorage.setItem("token", response.data.token)
             if(response){
-                navigate("/admin/blogs")
+                navigate("/admin")
             }
             alert( 'Login successfull');
 

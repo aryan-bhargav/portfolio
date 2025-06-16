@@ -62,6 +62,11 @@ function Navbar() {
                         ? 'px-4 py-3 text-xl bg-gray-400 dark:text-white text-white/80  dark:bg-gray-600 rounded-lg'
                         : 'px-4 py-3 text-xl hover:bg-gray-200  dark:text-white hover:text-black text-black/80 dark:hover:bg-gray-800 hover:rounded-lg duration-500'
                 }>Resume</NavLink>
+                <NavLink to="/blog" className={({ isActive }) =>
+                    isActive
+                        ? 'px-4 py-3 text-xl bg-gray-400 dark:text-white text-white/80  dark:bg-gray-600 rounded-lg'
+                        : 'px-4 py-3 text-xl hover:bg-gray-200  dark:text-white hover:text-black text-black/80 dark:hover:bg-gray-800 hover:rounded-lg duration-500'
+                }>Blog</NavLink>
             </div>
 
             {/* Mobile Menu Icon */}
@@ -108,6 +113,17 @@ function Navbar() {
                         }
                     >
                         Resume
+                    </NavLink>
+                    <NavLink
+                        to="/blog"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={({ isActive }) =>
+                            isActive
+                                ? 'px-4 py-3 text-xl bg-gray-400 dark:text-white text-white/80  dark:bg-gray-600 rounded-lg'
+                                : 'px-4 py-3 text-xl hover:bg-gray-200  dark:text-white hover:text-black text-black/80 dark:hover:bg-gray-800 hover:rounded-lg duration-500'
+                        }
+                    >
+                        Blog
                     </NavLink>
                 </div>
             )}

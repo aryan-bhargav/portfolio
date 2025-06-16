@@ -1,13 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../App.css"
 import { Link } from 'react-router-dom'
 import SkillMarquee from '../Components/SkillMarquee'
 import ContactForm from '../Components/ContactForm'
+import { useNavigate } from 'react-router-dom'
+import { SiLeetcode, SiGeeksforgeeks, SiGithub, SiLinkedin, SiInstagram } from 'react-icons/si';
 
 const Home = () => {
 
     const iconLinkClass = "lg:p-3 md:p-2 sm:p-1 p-1 rounded-lg bg-gray-200 dark:bg-[#141110] hover:bg-gray-800 duration-500";
     const iconImgClass = 'dark:filter dark:invert hover:filter hover:invert w-5 h-5 sm:w-9 sm:h-9'
+    const navigate = useNavigate();
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.ctrlKey && e.key.toLowerCase() === 'a') {
+                e.preventDefault(); // prevents "select all" behavior
+                navigate('/admin'); // or use window.location.href = '/admin' if not using React Router
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [navigate]);
 
     return (
         <div className='flex flex-col gap-6  mx-8'>
@@ -45,14 +62,20 @@ const Home = () => {
 
 
                 <Link className={iconLinkClass} to="https://github.com/aryan-bhargav">
-                    <img className={iconImgClass} src="/github.png" alt="" />
+                    <SiGithub className="w-6 h-6 sm:w-9 sm:h-9" />
                 </Link>
 
                 <Link className={iconLinkClass} to="https://www.linkedin.com/in/aryan-bhargav/">
-                    <img className={iconImgClass} src="linkedin.png" alt="" />
+                    <SiLinkedin className="w-6 h-6 sm:w-9 sm:h-9" />
                 </Link>
                 <Link className={iconLinkClass} to="https://www.instagram.com/aryan_bhargav47/">
-                    <img className={iconImgClass} src="instagram.png" alt="" />
+                    <SiInstagram className="w-6 h-6 sm:w-9 sm:h-9" />
+                </Link>
+                <Link className={iconLinkClass} to="https://leetcode.com/u/bhargavaryan5/">
+                    <SiLeetcode className="w-6 h-6 sm:w-9 sm:h-9" />
+                </Link>
+                <Link className={iconLinkClass} to="https://www.geeksforgeeks.org/user/bhargav63r5/">
+                    <SiGeeksforgeeks className="w-6 h-6 sm:w-9 sm:h-9" />
                 </Link>
                 <button className='bg-gray-500 text-white hover:bg-gray-400  dark:bg-gray-800 dark:hover:bg-gray-700  hover:rounded-4xl hover:duration-500 rounded-3xl font-semibold px-6 py-3 flex flex-row items-center'>
                     <a href="mailto:bhargavaryan5@gmail.com">Email me</a>

@@ -1,51 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Comfortaa:wght@300..700&family=Krona+One&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+@tailwindcss/typography
 @theme {
   --breakpoint-xs: 52.625rem;
 }
 
-h1,h2,h3,p,div{
-  user-select: none;
+.ProseMirror {
+  outline: none;
+  min-height: 200px;
+  padding: 0.5rem;
+}
+
+
+h1,
+h2,
+h3,
+p,
+div {
+  user-select:auto;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    /* background-color: #0F0D0C; */
+  margin: 0;
+  padding: 0;
+  /* background-color: #0F0D0C; */
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
   }
-  
-  @keyframes slide-down {
-    0% {
-      opacity: 0;
-      transform: translateY(-10%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .animate-slide-down {
-    animation: slide-down 0.3s ease-out;
-  }
-  
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
 
 #navbar-date {
-    font-family: "Cal Sans", sans-serif;
+  font-family: "Cal Sans", sans-serif;
 }
 
 h1 {
-    font-family: "Cal Sans", sans-serif;
+  font-family: "Cal Sans", sans-serif;
 }
 
 @keyframes marquee {
-    50% { transform: translateX(50%); }
-    100% { transform: translateX(100%); }
+  50% {
+    transform: translateX(50%);
   }
-  
-  .animate-marquee {
-    display: inline-block;
-    animation: marquee 10s linear infinite reverse;
+
+  100% {
+    transform: translateX(100%);
   }
-  
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 10s linear infinite reverse;
+}

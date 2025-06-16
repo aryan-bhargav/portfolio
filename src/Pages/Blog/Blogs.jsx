@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllBlogs } from '../../Services/blog'; // adjust path if needed
+import Loading from "../../Components/Loading"
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
@@ -23,7 +24,7 @@ const Blogs = () => {
         fetchBlogs();
     }, []);
 
-    if (loading) return <div className="text-center py-10 text-white">Loading blogs...</div>;
+    if (loading) return <Loading/>;
     if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
 
     return (

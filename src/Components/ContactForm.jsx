@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { sendMessage } from '../Services/contactMe';
-import AlertPopup from '../components/AlertPopup';
+import AlertPopup from '../Components/AlertPopup';
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
@@ -8,14 +8,14 @@ import Resume from './Pages/Resume';
 import Projects from "./Pages/Projects";
 import Blogs from "./Pages/Blog/Blogs"
 import BlogPost from "./Pages/Blog/BlogPost"
-import AdminBlogPanel from "./Pages/Admin/AdminBlogPanel"
 import AdminLogin from "./Pages/Admin/AdminLogin"
-import AdminSignup from "./Pages/Admin/AdminSignup"
 import AdminDashboard from './Pages/Admin/AdminDashboard';
 import AddBlog from './Pages/Admin/AddBlog';
 import ManageBlog from './Pages/Admin/ManageBlog';
 import ProtectedRoutes from './Routes/ProtectedRoutes';
 import 'highlight.js/styles/github-dark.css'; 
+import EditBlog from './Pages/Admin/EditBlog';
+import PageNotFound from "./Pages/PageNotFound"
 function App() {
 
   return (
@@ -24,6 +24,7 @@ function App() {
       <div className="  lg:px-50 md:px-20 sm:px-10 bg-[#F1F2F4] text-black/80 dark:bg-[#0F0D0C] dark:text-white  transition-colors duration-300">
         <Navbar />
         <Routes>
+          <Route path='*' element={<PageNotFound/>} />
           <Route path="/" element={<Home />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/projects" element={<Projects />} />
@@ -41,7 +42,7 @@ function App() {
           } />
           <Route path="/admin/blogs/edit/:id" element={
             <ProtectedRoutes>
-              <AddBlog />
+              <EditBlog />
             </ProtectedRoutes>
           } />
           
@@ -52,7 +53,6 @@ function App() {
           } />
 
           <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/signup" element={<AdminSignup />} />
         </Routes>
         <Footer />
         <br />

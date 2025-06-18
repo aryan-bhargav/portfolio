@@ -3,6 +3,8 @@ import { getAllBlogs, deleteBlog } from "../../Services/blog";
 import { useNavigate } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Loading from "../../Components/Loading";
+import AlertPopup from "../../Components/AlertPopup";
+import ConfirmDeletePopup from "../../Components/ConfirmDeletePopup";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -12,6 +14,9 @@ const ManageBlog = () => {
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [alert, setAlert] = useState(null);
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,31 +41,54 @@ const ManageBlog = () => {
     setCurrentPage(1);
   }, [search, blogs]);
 
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this blog?")) return;
+  const handleConfirmDelete = async () => {
+    if (!confirmDeleteId) return;
     try {
-      await deleteBlog(id);
-      setBlogs((prev) => prev.filter((b) => b._id !== id));
+      await deleteBlog(confirmDeleteId);
+      setBlogs((prev) => prev.filter((b) => b._id !== confirmDeleteId));
+      setAlert({ type: "success", message: "Blog deleted successfully." });
     } catch (err) {
       console.error("Delete failed", err);
-      alert("Could not delete blog.");
+      setAlert({ type: "error", message: "Could not delete blog." });
+    } finally {
+      setConfirmDeleteId(null);
     }
   };
+
+  useEffect(() => {
+    if (alert) {
+      const timer = setTimeout(() => setAlert(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [alert]);
 
   const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
-
   const totalPages = Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE);
 
   if (loading) return <Loading />;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="relative max-w-5xl mx-auto px-4 py-10">
+      {/* AlertPopup */}
+      {alert && (
+        <div className="fixed top-0 left-0 w-full z-50">
+          <AlertPopup type={alert.type} message={alert.message} />
+        </div>
+      )}
+
+      {/* Confirm Delete Popup */}
+      {confirmDeleteId && (
+        <ConfirmDeletePopup
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setConfirmDeleteId(null)}
+        />
+      )}
+
       <h2 className="text-3xl font-semibold text-white mb-6 mt-24">📝 Manage Blogs</h2>
 
-      {/* 🔍 Search */}
       <input
         type="text"
         placeholder="Search blogs..."
@@ -85,7 +113,9 @@ const ManageBlog = () => {
               {paginatedBlogs.map((blog) => (
                 <tr key={blog._id} className="border-t border-white/10 hover:bg-white/10">
                   <td className="px-4 py-3">{blog.title}</td>
-                  <td className="px-4 py-3">{new Date(blog.createdAt).toLocaleDateString()}</td>
+                  <td className="px-4 py-3">
+                    {new Date(blog.createdAt).toLocaleDateString()}
+                  </td>
                   <td className="px-4 py-3 flex gap-4 items-center">
                     <button
                       onClick={() => navigate(`/admin/blogs/edit/${blog._id}`)}
@@ -95,7 +125,7 @@ const ManageBlog = () => {
                       <FaEdit />
                     </button>
                     <button
-                      onClick={() => handleDelete(blog._id)}
+                      onClick={() => setConfirmDeleteId(blog._id)}
                       className="text-white hover:text-red-400 transition"
                       title="Delete"
                     >
@@ -113,8 +143,9 @@ const ManageBlog = () => {
               <button
                 key={num}
                 onClick={() => setCurrentPage(num)}
-                className={`px-4 py-2 rounded-lg backdrop-blur border border-white/10 text-white/80 hover:bg-white/10 transition
-                  ${currentPage === num ? "bg-white/10 text-white font-semibold" : ""}`}
+                className={`px-4 py-2 rounded-lg backdrop-blur border border-white/10 text-white/80 hover:bg-white/10 transition ${
+                  currentPage === num ? "bg-white/10 text-white font-semibold" : ""
+                }`}
               >
                 {num}
               </button>

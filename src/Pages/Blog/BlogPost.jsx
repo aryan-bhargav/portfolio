@@ -42,22 +42,27 @@ const BlogPost = () => {
 
   const handleLike = async () => {
     const likeKey = `liked-${blog._id}`;
-    if (localStorage.getItem(likeKey)) {
-      alert('You have already liked this blog.');
-      return;
-    }
+    const alreadyLiked = localStorage.getItem(likeKey);
 
     try {
       setLikeLoading(true);
-      const res = await likeBlog(blog._id);
+
+      // Toggle like state
+      const res = await likeBlog(blog._id); // assume this toggles like/unlike
       setBlog(res.data);
-      localStorage.setItem(likeKey, 'true');
+
+      if (alreadyLiked) {
+        localStorage.removeItem(likeKey);
+      } else {
+        localStorage.setItem(likeKey, 'true');
+      }
     } catch (err) {
-      console.error('Error liking blog:', err);
+      console.error('Error toggling like:', err);
     } finally {
       setLikeLoading(false);
     }
   };
+
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -87,7 +92,8 @@ const BlogPost = () => {
     );
   }
 
-  const isAlreadyLiked = localStorage.getItem(`liked-${blog._id}`);
+  const isAlreadyLiked = !!localStorage.getItem(`liked-${blog?._id}`);
+
 
   return (
     <div className={containerStyle}>
@@ -119,7 +125,7 @@ const BlogPost = () => {
         className={`${buttonBase} ${isAlreadyLiked
           ? 'bg-gray-600 cursor-not-allowed'
           : 'bg-pink-600 hover:bg-pink-700'
-        }`}
+          }`}
       >
         ❤️ {isAlreadyLiked ? `Liked (${blog.likes})` : likeLoading ? 'Liking...' : `Like (${blog.likes})`}
       </button>

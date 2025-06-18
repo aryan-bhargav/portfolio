@@ -3,10 +3,9 @@ import { NavLink, } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import ThemeToggler from './ThemeToggler';
 import "../App.css"
-
+import { useNavigate } from 'react-router-dom';
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const [date, setDate] = useState("");
     useEffect(() => {
         const updateDate = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Resume = () => {
   const fileId = '1Q6onPe5ILHny_HQZUne3mW8-lecrEQrU';
